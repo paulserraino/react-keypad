@@ -1,6 +1,6 @@
 {
   "name": "react-keypad",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "mobile ready keypad",
   "main": "./dist/index.js",
   "repository": {
