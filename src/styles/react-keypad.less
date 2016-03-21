@@ -3,6 +3,9 @@
 /////////////////////
 @skyblue: #73C4FF;
 @border: 1px solid #eee;
+@keyHeight: 37px;
+@keyWidth: 96px;
+@enterHeight: 293px;
 
 @import "mixins/animate.less";
 @import "includes/animations.less";
@@ -15,7 +18,12 @@
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
-    transition: all 0.3s;
+    transition: all 0.5s ease;
+    transform: translateY(80px);
+
+    &.active {
+        transform: translateY(0px);
+    }
 }
 
 .react-keypad .pad {
@@ -45,7 +53,7 @@
 }
 
 ///////////////////////////
-// Key
+// Keys
 //////////////////////////
 .react-keypad .key {
     background-color: #FDFDFD;
@@ -53,7 +61,9 @@
     border-left: @border;
     border-top: @border;
     font-size: 1.2em;
-    padding: 37px 41px 38px;
+    width: @keyWidth;
+    padding-top: @keyHeight;
+    padding-bottom: @keyHeight;
     cursor: pointer;
 
     &:last-child {
@@ -68,7 +78,25 @@
         border: 1px solid @skyblue;
         box-shadow: 0px 0px 2px 0px @skyblue;
     }
+
+    &.key-control {
+        font-size: 1.1em;
+        border-left: none;
+        padding-top: @keyHeight + 1px;
+        padding-bottom: @keyHeight + 1px;
+        margin-left: -2px;
+    }
+
+    &.key-enter {
+        border-bottom: @border;
+        height: @enterHeight;
+    }
+
+    &.key-delete {
+        border-right: @border;
+    }
 }
+
 
 ///////////////////////////
 // Key Group

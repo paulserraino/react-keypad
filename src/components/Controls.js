@@ -11,13 +11,13 @@ export class Controls extends Component {
         return (
             <div className="controls">
                 <button
-                    className="key key-del"
+                    className="key key-control key-delete"
                     onClick={onDelete}
                     onTouchDown={onDelete}>
                     delete
                 </button>
                 <button
-                    className="key key-enter"
+                    className="key key-control key-enter"
                     onClick={onEnter}
                     onTouchDown={onEnter}>
                     enter

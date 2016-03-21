@@ -44,8 +44,13 @@ export class Keypad extends Component {
             'active': isActive
         });
 
+        const keypadClass = classNames({
+            'react-keypad': true,
+            'active': isActive
+        });
+
         return(
-            <div className="react-keypad">
+            <div className={keypadClass}>
                 <input
                     type="text"
                     value={value.join('')}

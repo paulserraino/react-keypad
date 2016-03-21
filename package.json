@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/gulp",
+    "prepublish": "./node_modules/.bin.gulp",
     "test": "./node_modules/.bin/hihat test/index.js --index=test/index.html -- -t babelify -p tap-dev-tool"
   },
   "keywords": [
