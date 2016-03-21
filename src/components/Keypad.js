@@ -39,7 +39,7 @@ export class Keypad extends Component {
         const { onEnter } = this.props;
         const { value } = this.state;
         if (onEnter) {
-            return onEnter({ value });
+            return onEnter({ value: value.join('') });
         }
     }
 
