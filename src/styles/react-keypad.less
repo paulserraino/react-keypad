@@ -1,0 +1,89 @@
+/////////////////////
+// Variables
+/////////////////////
+@skyblue: #73C4FF;
+@border: 1px solid #eee;
+
+@import "mixins/animate.less";
+@import "includes/animations.less";
+
+///////////////////////////
+// Keypad
+///////////////////////////
+.react-keypad {
+    color: #333;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+
+.react-keypad .pad {
+    visibility: hidden;
+    width: 420px;
+    margin: 0 auto;
+
+    &.active {
+        visibility: visible;
+        .fadeInUp;
+    }
+}
+
+.react-keypad input {
+    display: block;
+    font-size: 1.2em;
+    border: @border;
+    height: 45px;
+    width: 100%;
+    background: none;
+    padding: 6px 12px;
+    margin-bottom: 8px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+///////////////////////////
+// Key
+//////////////////////////
+.react-keypad .key {
+    background-color: #FDFDFD;
+    border: none;
+    border-left: @border;
+    border-top: @border;
+    font-size: 1.2em;
+    padding: 37px 41px 38px;
+    cursor: pointer;
+
+    &:last-child {
+        border-right: @border;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &.clicked {
+        border: 1px solid @skyblue;
+        box-shadow: 0px 0px 2px 0px @skyblue;
+    }
+}
+
+///////////////////////////
+// Key Group
+///////////////////////////
+.react-keypad .row {
+    width: 290px;
+    margin: 0 auto;
+}
+
+.react-keypad .keygroups {
+    float: left;
+    width: 69%;
+}
+
+.react-keypad .controls {
+    float: left;
+    width: 26%;
+}

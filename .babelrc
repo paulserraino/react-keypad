@@ -1,0 +1,9 @@
+{
+    "presets": ["es2015-loose", "react"],
+    "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties"
+    ],
+    "sourceMaps": true,
+    "ignore": ["node_modules"]
+}
