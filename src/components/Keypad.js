@@ -35,6 +35,14 @@ export class Keypad extends Component {
         });
     };
 
+    handleEnter = () => {
+        const { onEnter } = this.props;
+        const { value } = this.state;
+        if (onEnter) {
+            return onEnter({ value });
+        }
+    }
+
     render() {
         const { placeholder, onEnter, children } = this.props;
         const { value, isActive } = this.state;
@@ -64,7 +72,7 @@ export class Keypad extends Component {
                         <KeyGroup keys={['7','8','9']} onClick={this.handleClick} />
                         <KeyGroup keys={['*','0','#']} onClick={this.handleClick} />
                     </div>
-                    <Controls onDelete={this.handleDelete} onEnter={onEnter} />
+                    <Controls onDelete={this.handleDelete} onEnter={this.handleEnter} />
                 </div>
                 {children}
             </div>
