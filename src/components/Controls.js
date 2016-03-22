@@ -1,28 +1,36 @@
 import React, { Component, PropTypes } from 'react';
 
-export class Controls extends Component {
+export class EnterKey extends Component {
     static propTypes = {
-        onDelete: PropTypes.func.isRequired,
-        onEnter: PropTypes.func.isRequired
+        onEnter: PropTypes.func.isRequired,
     };
     render() {
-        const { onDelete, onEnter } = this.props;
-
+        const { onEnter } = this.props;
         return (
-            <div className="controls">
-                <button
-                    className="key key-control key-delete"
-                    onClick={onDelete}
-                    onTouchDown={onDelete}>
-                    delete
-                </button>
-                <button
-                    className="key key-control key-enter"
-                    onClick={onEnter}
-                    onTouchDown={onEnter}>
-                    enter
-                </button>
-            </div>
-        )
+            <button
+                className="key key-control key-enter"
+                onClick={onEnter}
+                onTouchDown={onEnter}>
+                enter
+            </button>
+        );
+    }
+}
+
+export class DeleteKey extends Component {
+    static propTypes = {
+        onDelete: PropTypes.func.isRequired,
+    };
+
+    render() {
+        const { onDelete } = this.props;
+        return (
+            <button
+                className="key key-control key-delete"
+                onClick={onDelete}
+                onTouchDown={onDelete}>
+                del
+            </button>
+        );
     }
 }

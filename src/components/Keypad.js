@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { KeyGroup } from './KeyGroup';
-import { Controls } from './Controls';
+import { DeleteKey, EnterKey } from './Controls';
 import classNames from 'classnames';
 
 export class Keypad extends Component {
     static propTypes = {
         placeholder: PropTypes.string,
-        onEnter: PropTypes.func.isRequired
+        onEnter: PropTypes.func.isRequired,
+        active: PropTypes.bool
     };
 
     state = {
@@ -44,17 +45,17 @@ export class Keypad extends Component {
     }
 
     render() {
-        const { placeholder, onEnter, children } = this.props;
+        const { placeholder, onEnter, children, active } = this.props;
         const { value, isActive } = this.state;
 
         const padClass = classNames({
             'pad': true,
-            'active': isActive
+            'active': active || isActive
         });
 
         const keypadClass = classNames({
             'react-keypad': true,
-            'active': isActive
+            'active': active || isActive
         });
 
         return(
@@ -67,14 +68,13 @@ export class Keypad extends Component {
                     placeholder={placeholder} />
                 <div className={padClass}>
                     <div className="keygroups">
-                        <KeyGroup keys={['1','2','3']} onClick={this.handleClick} />
-                        <KeyGroup keys={['4','5','6']} onClick={this.handleClick} />
-                        <KeyGroup keys={['7','8','9']} onClick={this.handleClick} />
-                        <KeyGroup keys={['*','0','#']} onClick={this.handleClick} />
+                        <KeyGroup keys={['1','2','3', { component: <DeleteKey onDelete={this.handleDelete} /> }]} onClick={this.handleClick} />
+                        <KeyGroup keys={['4','5','6', '*']} onClick={this.handleClick} />
+                        <KeyGroup keys={['7','8','9', '#']} onClick={this.handleClick} />
+                        <KeyGroup keys={['','0','', '']} onClick={this.handleClick} />
                     </div>
-                    <Controls onDelete={this.handleDelete} onEnter={this.handleEnter} />
+                    <EnterKey onEnter={this.handleEnter} />
                 </div>
-                {children}
             </div>
         )
     }
