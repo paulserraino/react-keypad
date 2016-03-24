@@ -17,7 +17,9 @@ export class Keypad extends Component {
 
     handleClick = (event) => {
         const { value } = event.target;
-        this.setState((state) => ({ value: state.value.concat(value) }));
+        if (value) {
+            this.setState((state) => ({ value: state.value.concat(value) }));
+        }
     };
 
     handleChange = (event) => {
