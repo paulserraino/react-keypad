@@ -69,8 +69,8 @@ export class Keypad extends Component {
                 <div className={padClass}>
                     <div className="keygroups">
                         <KeyGroup keys={['1','2','3', { component: <DeleteKey onDelete={this.handleDelete} /> }]} onClick={this.handleClick} />
-                        <KeyGroup keys={['4','5','6', '*']} onClick={this.handleClick} />
-                        <KeyGroup keys={['7','8','9', '#']} onClick={this.handleClick} />
+                        <KeyGroup keys={['4','5','6', '']} onClick={this.handleClick} />
+                        <KeyGroup keys={['7','8','9', '']} onClick={this.handleClick} />
                         <KeyGroup keys={['','0','', '']} onClick={this.handleClick} />
                     </div>
                     <EnterKey onEnter={this.handleEnter} />
